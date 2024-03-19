@@ -1,8 +1,6 @@
 # fa_en_convert
 farsi english character converter
 
-Convert characters from a string.
-From one language to another (english, farsi).
-
-Input a string to get the conversion.
+from https://github.com/rezkam/persian
+some mappings are changed
 
