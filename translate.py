@@ -1,13 +1,8 @@
-# encoding: utf-8
+"""
+From Reza Kamalifard persian.py with the mappings reviewed.
+Reza Kamalifard (mrkamalifard@gmail.com - @rezakamalifard - https://github.com/itmard/Persian
+"""
 
-"""
-Persian
-Simple modified tool for Persian language localization in Python
-Copyright (C) 2017-2020 Reza Kamalifard (mrkamalifard@gmail.com) and others
-@rezakamalifard
-MIT licensed
-https://github.com/itmard/Persian
-"""
 
 import re
 import urllib.parse
@@ -16,8 +11,6 @@ import urllib.parse
 def convert_en_numbers(input_str):
     """
     Converts English numbers to Persian numbers
-    :param input_str: String contains English numbers
-    :return: New string with Persian numbers
     """
     mapping = {
         '0': '۰',
@@ -35,10 +28,7 @@ def convert_en_numbers(input_str):
 
 def convert_en_characters(input_str):
     """
-    Assumes that characters written with standard persian keyboard
-    not windows arabic layout
-    :param input_str: String contains English chars
-    :return: New string with related characters on Persian standard keyboard
+    Converts English characters to Persian characters
     """
     mapping = {
         'a': 'ا',
@@ -72,12 +62,7 @@ def convert_en_characters(input_str):
 
 def convert_fa_numbers(input_str):
     """
-    This function convert Persian numbers to English numbers.
-    
-    Keyword arguments:
-    input_str -- It should be string
-
-    Returns: English numbers
+    Converts Persian numbers to English numbers
     """
     mapping = {
         '۰': '0',
@@ -95,10 +80,7 @@ def convert_fa_numbers(input_str):
 
 def convert_fa_characters(input_str):
     """
-        Assumes that characters written with standard persian keyboard
-        not windows arabic layout
-    :param input_str: String contains English chars
-    :return: New string with related characters on Persian standard keyboard
+    Converts Persian characters to English characters
     """
     mapping = {
         'آ': 'aa',
@@ -173,3 +155,6 @@ def _multiple_replace(mapping, text):
     """
     pattern = "|".join(map(re.escape, mapping.keys()))
     return re.sub(pattern, lambda m: mapping[m.group()], str(text))
+
+
+print(convert_fa_characters('سرلشکر باقری'))
