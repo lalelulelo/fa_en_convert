@@ -3,15 +3,10 @@ From Reza Kamalifard persian.py with the mappings reviewed.
 Reza Kamalifard (mrkamalifard@gmail.com - @rezakamalifard - https://github.com/itmard/Persian
 """
 
-
 import re
 import urllib.parse
 
-
-def convert_en_numbers(input_str):
-    """
-    Converts English numbers to Persian numbers
-    """
+def convert_en(input_str):
     mapping = {
         '0': '۰',
         '1': '۱',
@@ -23,14 +18,6 @@ def convert_en_numbers(input_str):
         '7': '۷',
         '8': '۸',
         '9': '۹',
-    }
-    return _multiple_replace(mapping, input_str)
-
-def convert_en_characters(input_str):
-    """
-    Converts English characters to Persian characters
-    """
-    mapping = {
         'a': 'ا',
         'b': 'ب',
         'c': 'c',
@@ -60,10 +47,7 @@ def convert_en_characters(input_str):
     }
     return _multiple_replace(mapping, input_str)
 
-def convert_fa_numbers(input_str):
-    """
-    Converts Persian numbers to English numbers
-    """
+def convert_fa(input_str):
     mapping = {
         '۰': '0',
         '۱': '1',
@@ -75,14 +59,6 @@ def convert_fa_numbers(input_str):
         '۷': '7',
         '۸': '8',
         '۹': '9',
-    }
-    return _multiple_replace(mapping, input_str)
-
-def convert_fa_characters(input_str):
-    """
-    Converts Persian characters to English characters
-    """
-    mapping = {
         'آ': 'aa',
         'ا': 'a',
         'ب': 'b',
@@ -155,6 +131,3 @@ def _multiple_replace(mapping, text):
     """
     pattern = "|".join(map(re.escape, mapping.keys()))
     return re.sub(pattern, lambda m: mapping[m.group()], str(text))
-
-
-print(convert_fa_characters('سرلشکر باقری'))
